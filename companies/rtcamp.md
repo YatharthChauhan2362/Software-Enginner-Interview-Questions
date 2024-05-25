@@ -568,3 +568,93 @@ If you want to deliberately slow down a fast website, there are several actions 
    - Stop using Content Delivery Networks (CDNs) that speed up resource delivery.
 
 While these actions are typically undesirable in practice as they degrade user experience and SEO rankings, they serve as useful insights into how website performance can be affected by various factors.
+
+# Where is session data stored in backend servers?
+
+Session data can be stored in different places on backend servers:
+
+1. **In Memory**: This is the fastest but is lost when the server is restarted.
+2. **Database**: This is more persistent and can be shared across multiple servers.
+3. **File System**: This stores session data in files on the server’s hard drive.
+4. **Cache Stores**: Services like Redis or Memcached can store session data for quick access.
+
+# Git stores all the data in which folder?
+
+Git stores all of its data in a directory called `.git`. This directory is located in the root directory of your Git repository. Inside the `.git` directory, you'll find various files and subdirectories that Git uses to manage the repository, including:
+
+- **objects:** This directory contains the actual data (commits, trees, blobs) that Git stores.
+- **refs:** Git stores references (like branches and tags) in this directory.
+- **config:** Configuration settings for the repository are stored here.
+- **hooks:** This directory contains scripts that Git can run at certain points in the development workflow.
+- **logs:** Logs of various actions, such as commits and ref updates, are stored here.
+- **info:** Miscellaneous information about the repository.
+
+It's important to note that the `.git` directory is hidden by default, so you might need to enable your file browser to show hidden files to see it. The presence of this directory is what makes a directory a Git repository.
+
+# How does a .gitignore file work?
+
+A `.gitignore` file tells Git which files or directories to ignore in a project. When you create or edit a `.gitignore` file, you specify patterns for files and directories that Git should ignore. This is useful for excluding temporary files, build artifacts, or sensitive information like passwords from being tracked in the repository.
+
+1. **Create a `.gitignore` file**: You create a file named `.gitignore` in the root directory of your Git repository.
+
+2. **Specify files or patterns**: In the `.gitignore` file, you specify the files, directories, or file patterns that you want Git to ignore. Each entry is on a new line.
+
+   For example:
+   ```
+   # Ignore all .log files
+   *.log
+   
+   # Ignore the "temp" directory
+   temp/
+   
+   # Ignore all files in the "build" directory, but not the directory itself
+   build/*
+   ```
+
+3. **How it works**: When you make changes to your project and stage them for commit, Git checks against the `.gitignore` file. Any files or directories listed in `.gitignore` will be ignored by Git and won't be included in the commit.
+
+   For example, if you have a file named `debug.log` and it's listed in `.gitignore`, Git won't track changes to `debug.log` unless you specifically tell it to.
+
+4. **Exceptions**: You can also use negation patterns to specify exceptions. For instance, if you want to ignore all `.log` files except for `error.log`, you can do this:
+   ```
+   *.log
+   !error.log
+   ```
+
+5. **Committing the .gitignore file**: Once you create or modify the `.gitignore` file, make sure to commit it to your repository. This ensures that other collaborators also ignore the specified files.
+
+By using `.gitignore`, you keep your repository clean and focused on relevant files, making collaboration easier and avoiding unnecessary clutter in version control.
+# How to verify an email? Which is the best method to verify the email, client-based or server-based?
+
+To verify an email, you want to make sure it's a real and valid email address. The best method depends on what you need. Here's how you can do it:
+
+### Client-based Verification:
+- **Pros:**
+  - Quick and easy for users.
+  - Can be integrated into user interfaces.
+- **Cons:**
+  - Less secure because it relies on user input.
+  - Vulnerable to fake or mistyped email addresses.
+
+To verify an email client-side:
+1. Ask users to enter their email address.
+2. Use JavaScript or a similar language to check if the email format looks correct (like containing an "@" symbol and a domain).
+3. You can also perform additional checks like ensuring the domain exists, but this may be limited.
+
+### Server-based Verification:
+- **Pros:**
+  - More secure as it verifies the email with the server directly.
+  - Less susceptible to fake or mistyped addresses.
+- **Cons:**
+  - Requires more technical setup.
+  - May take longer as it involves sending a request to the server.
+
+To verify an email server-side:
+1. After users submit their email address, your server sends a verification request to the email server associated with that address.
+2. The email server responds with whether the address is valid or not.
+3. You can then proceed based on this response.
+
+### Conclusion:
+- **Client-based:** Quick but less secure.
+- **Server-based:** More secure but requires more technical setup and might take longer.
+- **Best Method:** For most cases, server-based verification is more reliable and secure, especially if you're dealing with sensitive data or need to ensure the accuracy of email addresses.
