@@ -1,3 +1,10 @@
+# rtcamp | Interview Questions and Answers
+
+### Author Information | Yatharth Chauhan
+- [Visit My Portfolio](https://yatharthchauhan.me)
+- [LinkedIn: Yatharth Chauhan](https://www.linkedin.com/in/yatharth-chauhan-729674202/)
+- [GitHub: Yatharth Chauhan](https://github.com/YatharthChauhan2362)
+
 # What are Git and GitHub?
 
 **Git**:
@@ -658,3 +665,191 @@ To verify an email server-side:
 - **Client-based:** Quick but less secure.
 - **Server-based:** More secure but requires more technical setup and might take longer.
 - **Best Method:** For most cases, server-based verification is more reliable and secure, especially if you're dealing with sensitive data or need to ensure the accuracy of email addresses.
+
+# Will a session work if we decline cookies?
+
+No, a session typically won't work if you decline cookies. Sessions in web applications commonly rely on cookies to store a unique session identifier (usually a session ID) in the user's browser. This session ID is then sent back to the server with each request, allowing the server to identify and retrieve the corresponding session data.
+
+When you decline cookies, your browser won't store the session ID, which means that subsequent requests to the server won't include the necessary information to identify the session. As a result, the server won't be able to maintain the session state between requests, and features that rely on session data, such as user authentication or shopping carts in e-commerce websites, may not function correctly.
+
+However, some web applications may have fallback mechanisms in place to handle situations where cookies are disabled by using other methods, such as appending the session ID to URLs or using hidden form fields. These methods are less common and less secure than using cookies, but they can provide a workaround for users who have disabled cookies in their browsers.
+
+# When reopening a website after closing it, the session made on that website gets destroyed automatically and you need to log in again. Why so?
+
+When you reopen a website after closing it, the session made on that website may get destroyed automatically due to several reasons:
+
+1. **Session Timeout**: Many websites implement session timeouts for security reasons. This means that after a certain period of inactivity (for example, 15 or 30 minutes), the session is automatically terminated to reduce the risk of unauthorized access if someone walks away from their computer without logging out.
+
+2. **Browser Behavior**: Some browsers automatically clear cookies and session data when they are closed or when the browser is restarted. This behavior is often configurable by the user in browser settings.
+
+3. **Server-side Configuration**: The website's server may be configured to invalidate sessions upon browser closure or after a certain period of time. This is often done to manage server resources efficiently and reduce the risk of security breaches.
+
+4. **Security Measures**: Automatic session expiration adds an additional layer of security by reducing the window of opportunity for attackers to hijack an active session. If a user's session remains active indefinitely, it increases the risk of unauthorized access if someone gains access to the user's device or session ID.
+
+Overall, automatic session destruction upon closing a website helps protect user accounts and sensitive information from unauthorized access and enhances the overall security posture of the website. However, it can sometimes inconvenience users who need to log in frequently, so it's important for websites to strike a balance between security and usability.
+
+# What is DOM?
+
+DOM stands for Document Object Model. It's a programming interface for web documents. In simpler terms, the DOM is a representation of the structure and content of a web page that web browsers create when they load an HTML document.
+
+Here's what you need to know about the DOM:
+
+- **Structured Representation**: The DOM represents the HTML document as a tree structure, where each node corresponds to a part of the document, such as elements, attributes, and text.
+
+- **Hierarchical Structure**: The tree structure of the DOM reflects the hierarchical structure of the HTML document, with each element being a node in the tree.
+
+- **Dynamic**: The DOM is dynamic, meaning it can be modified through scripting languages like JavaScript. You can add, remove, or modify elements and attributes in the DOM, and these changes will be reflected in the web page.
+
+- **Platform-Neutral**: The DOM is platform-neutral, meaning it provides a standard interface for accessing and manipulating documents regardless of the programming language or platform being used.
+
+- **Interaction with JavaScript**: JavaScript interacts with the DOM to manipulate the content and structure of web pages dynamically. It can access elements in the DOM, change their attributes, and respond to user events like clicks and keystrokes.
+
+In summary, the DOM is a representation of the structure and content of a web page that browsers use internally. It provides a standardized way for scripting languages like JavaScript to interact with and manipulate web documents dynamically, enabling the creation of dynamic and interactive web pages.
+
+
+# What is encryption and decryption?
+
+Encryption is the process of converting plain text or data into a coded form, known as ciphertext, to prevent unauthorized access. Decryption is the reverse process, where the ciphertext is converted back into plaintext, allowing access to the original data.
+
+Encryption and decryption are commonly used to protect sensitive information during storage or transmission. They rely on algorithms and keys to encode and decode data, ensuring that only authorized parties can access the plaintext.
+
+# What is hashing?
+
+Hashing is the process of converting input data of any size into a fixed-size string of characters, known as a hash value or hash code. Hash functions take input data and produce a unique hash value, which serves as a digital fingerprint of the original data.
+
+Hashing is commonly used for data integrity verification and password storage. It allows systems to quickly verify whether data has been tampered with by comparing hash values. However, hash functions are one-way functions, meaning it's computationally infeasible to reverse the process and obtain the original data from the hash value.
+
+# What is the purpose of salting?
+
+Salting is a technique used to strengthen the security of hashed passwords. It involves adding a random string of characters, known as a salt, to the plaintext password before hashing it. The salt is then stored alongside the hashed password.
+
+The purpose of salting is two-fold:
+
+1. **Unique Hashes**: Salting ensures that even if two users have the same password, their hashed passwords will be different because of the unique salts. This prevents attackers from using precomputed tables like rainbow tables to crack passwords.
+
+2. **Defense Against Dictionary Attacks**: Salting makes it more difficult for attackers to crack passwords using dictionary attacks or brute force methods. Without knowledge of the salt, attackers must hash each password guess individually, significantly increasing the time and computational resources required to crack passwords.
+
+In summary, salting enhances the security of hashed passwords by adding randomness and uniqueness, making it more challenging for attackers to crack passwords using common techniques.
+
+
+# How does JWT work?
+
+JWT stands for JSON Web Token. It's a compact and self-contained way to securely transmit information between parties as a JSON object. JWTs are commonly used for authentication and information exchange in web applications and APIs.
+
+Here's how JWT works:
+
+1. **Creation**: When a user logs in or authenticates, the server creates a JWT containing a payload of claims (such as user ID, username, and expiration time) and signs it using a secret key or private key.
+
+2. **Transmission**: The JWT is then transmitted to the client, typically as a part of an HTTP header (e.g., Authorization header) or within the request body.
+
+3. **Validation**: When the client sends subsequent requests to access protected resources, it includes the JWT in the request. The server verifies the JWT's authenticity by checking the signature using the secret key or public key associated with the issuer.
+
+4. **Access Control**: Once validated, the server extracts the claims from the JWT and uses them to make authorization decisions, granting or denying access to the requested resources based on the claims.
+
+JWTs are stateless, meaning the server doesn't need to store session state. They're also compact, making them efficient for transmitting data over the network. However, JWTs should be used with caution, especially when storing sensitive information, and proper security measures should be implemented to prevent misuse or tampering.
+
+# How do symmetric and asymmetric algorithms work?
+
+- **Symmetric Algorithms**: Symmetric encryption algorithms use the same key for both encryption and decryption. The sender and receiver must both know and use the same secret key to encrypt and decrypt messages. Examples of symmetric algorithms include AES (Advanced Encryption Standard) and DES (Data Encryption Standard).
+
+- **Asymmetric Algorithms**: Asymmetric encryption algorithms use a pair of keys: a public key and a private key. The public key is used for encryption, while the private key is used for decryption. Messages encrypted with the public key can only be decrypted with the corresponding private key, and vice versa. Examples of asymmetric algorithms include RSA (Rivest-Shamir-Adleman) and ECC (Elliptic Curve Cryptography).
+
+# What is encryption and decryption?
+
+- **Encryption**: Encryption is the process of converting plaintext or data into a coded form, known as ciphertext, using an encryption algorithm and a key. It's used to protect sensitive information during storage or transmission by making it unreadable to unauthorized parties.
+
+- **Decryption**: Decryption is the process of converting ciphertext back into plaintext, allowing access to the original data. It's the reverse of encryption and requires the use of the decryption algorithm and the corresponding key.
+
+# Different algorithms for encryption and hashing?
+
+- **Encryption Algorithms**: Encryption algorithms are used to secure data by converting it into an unreadable format. Common encryption algorithms include:
+  - AES (Advanced Encryption Standard)
+  - DES (Data Encryption Standard)
+  - RSA (Rivest-Shamir-Adleman)
+  - Triple DES (3DES)
+  - Blowfish
+
+- **Hashing Algorithms**: Hashing algorithms are used to generate fixed-size hash values from input data. They're commonly used for data integrity verification and password storage. Common hashing algorithms include:
+  - MD5 (Message Digest Algorithm 5)
+  - SHA-1 (Secure Hash Algorithm 1)
+  - SHA-256, SHA-384, SHA-512 (Secure Hash Algorithm 2)
+  - bcrypt
+  - PBKDF2 (Password-Based Key Derivation Function 2)
+
+Each algorithm has its strengths and weaknesses, and the choice of algorithm depends on factors such as security requirements, performance, and compatibility with existing systems.
+
+Got it! Here are the revised answers with the title formatted correctly:
+
+# Do all hashing algorithms generate a hash value of a fixed-size string of characters?
+
+No, not all hashing algorithms generate a hash value of a fixed-size string of characters. While many hashing algorithms produce fixed-length hash values, some hashing algorithms allow for variable-length output.
+
+For example:
+
+1. **MD5 (Message Digest Algorithm 5)** and **SHA-1 (Secure Hash Algorithm 1)**: These algorithms produce fixed-size hash values. MD5 generates a 128-bit (16-byte) hash value, while SHA-1 generates a 160-bit (20-byte) hash value.
+
+2. **SHA-256, SHA-384, SHA-512 (Secure Hash Algorithm 2)**: These algorithms are part of the SHA-2 family and can produce hash values of varying lengths. SHA-256 generates a 256-bit (32-byte) hash value, SHA-384 generates a 384-bit (48-byte) hash value, and SHA-512 generates a 512-bit (64-byte) hash value.
+
+3. **bcrypt** and **PBKDF2 (Password-Based Key Derivation Function 2)**: These algorithms are commonly used for password hashing and key derivation. They typically produce hash values of fixed lengths, but the output length can sometimes be adjusted based on configuration parameters.
+
+4. **Cryptographic hash functions**: Some cryptographic hash functions allow for variable-length output, where the output size can be specified by the user. This flexibility enables users to generate hash values of different lengths based on their specific requirements.
+
+In summary, while many hashing algorithms generate hash values of fixed lengths, there are exceptions, and some algorithms allow for variable-length output to accommodate different use cases and requirements.
+
+# How does a router assign IPs to computers?
+
+A router assigns IP addresses to computers using a protocol called Dynamic Host Configuration Protocol (DHCP). Here's how it works:
+
+1. **DHCP Request**: When a computer connects to a network managed by a router, it sends a DHCP request broadcast message.
+
+2. **DHCP Offer**: The router receives the DHCP request and responds with a DHCP offer message. This message contains an available IP address from the router's pool of addresses.
+
+3. **DHCP Request (Acknowledgement)**: The computer selects an IP address from the offered list and sends another DHCP request message, confirming the selection.
+
+4. **DHCP Acknowledgement**: The router receives the final DHCP request and sends a DHCP acknowledgment message back to the computer, confirming the assignment of the IP address.
+
+5. **IP Configuration**: The computer configures its network interface with the assigned IP address, subnet mask, default gateway (router's IP address), and DNS server addresses received from the DHCP server.
+
+This process allows the router to dynamically assign IP addresses to computers on the network, ensuring efficient use of available IP addresses and simplifying network administration.
+
+# What happens when you hit a URL when connected to a router?
+
+When you type a URL (Uniform Resource Locator) into your web browser's address bar and hit Enter while connected to a router, several steps occur to load the requested web page:
+
+1. **DNS Resolution**: The browser first checks its cache to see if it has the IP address of the website corresponding to the URL. If not found, it sends a DNS (Domain Name System) lookup request to a DNS server, typically provided by your Internet Service Provider (ISP). The DNS server resolves the domain name (URL) to an IP address.
+
+2. **Routing**: Once the browser has the IP address of the website, it sends an HTTP request to the IP address. The router examines the destination IP address and determines the next hop (gateway) to forward the request. It checks its routing table to find the appropriate path to the destination.
+
+3. **Forwarding**: The router forwards the HTTP request to the next hop, which may be another router or directly to the destination server.
+
+4. **Internet Transit**: The HTTP request traverses multiple routers and networks on the internet until it reaches the server hosting the website.
+
+5. **Server Response**: The server processes the request, retrieves the requested web page, and sends an HTTP response back to the browser.
+
+6. **Content Display**: The browser receives the HTTP response containing the web page content and renders it for display to the user.
+
+Throughout this process, the router plays a crucial role in routing the data packets between the user's computer and the destination server on the internet, ensuring the requested web page is delivered efficiently and securely.
+
+# Some Low-Level Design Questions Also.
+
+Sure, here are some low-level design questions along with their explanations:
+
+1. **Design a URL Shortening Service**: 
+   - Explanation: This involves designing a system that takes a long URL and generates a short, unique alias for it. Users can then use this short URL to access the original long URL. The system needs to handle storing mappings between short and long URLs efficiently and redirecting users to the correct long URL when they access the short URL.
+
+2. **Design a Parking Lot System**:
+   - Explanation: This involves designing a system for managing parking spaces in a parking lot. The system needs to keep track of available parking spaces, assign parking spots to vehicles entering the lot, and free up parking spots when vehicles leave. It should also handle scenarios such as different types of parking spaces (e.g., regular, handicapped), reservations, and payments.
+
+3. **Design a File System**:
+   - Explanation: This involves designing a system that manages files and directories on a storage device (e.g., hard drive). The system needs to support operations such as creating, deleting, moving, and accessing files and directories. It should also handle file permissions, file metadata (e.g., timestamps), and file storage allocation.
+
+4. **Design a Chat Application**:
+   - Explanation: This involves designing a system for real-time messaging between users. The system needs to handle sending and receiving messages, displaying online/offline status, supporting group chats, and ensuring message delivery and reliability. It should also include features such as message encryption, file sharing, and notifications.
+
+5. **Design a Chess Game**:
+   - Explanation: This involves designing a system for playing chess between two players. The system needs to handle representing the game board, validating moves, enforcing game rules, and determining game outcomes (e.g., checkmate, stalemate). It should also support features such as saving/loading games, recording move history, and providing hints.
+
+These low-level design questions test your ability to break down a problem into smaller components, identify key requirements, and design a system that meets those requirements efficiently and effectively.
+
+
+
